@@ -1,6 +1,13 @@
 {
   "name": "Graphite",
   "version": "1.0.0",
-  "dependencies": {"express": "latest"
+  "repository": "https://github.com/KubaJakubowski/Graphite",
+  "license": "NGPL",
+  "description": "Game jam jammy management project",
+  "dependencies": {
+    "constantinople": "^4.0.1",
+    "express": "latest",
+    "jade": "^1.11.0",
+    "pug": "^2.0.4"
   }
 }
