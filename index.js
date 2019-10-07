@@ -1,23 +1,18 @@
-let http = require('http');
 let express = require('express');
-let app = express();
+let pug = require('pug');
 
-app.set('trust proxy','127.0.0.1').enable();
+let app = express();
+app.locals.title = 'Graphite';
+app.locals.version = '1.0.0';
+
+app.set('trust proxy','127.0.0.1').enable('trust proxy');
 app.disable('strict routing');
+
+app.set('views','./views');
 app.set('view engine', 'pug');
+app.engine('pug', require('pug').__express);
 
 app.listen(8080);
 
-app.get('/', function(req, res){
-    res.set('Content-Type', 'text/html');
-    res.send('Main page');
-});
+app.use('/', require('./routes'));
 
-app.get('/login', function(req, res){
-    res.set('Content-Type', 'text/html');
-    res.send('Login page');
-});
-
-app.get('*', function(req, res){
-    res.send(404,'Error 404: Page not found');
-});
