@@ -11,6 +11,7 @@ app.disable('strict routing');
 app.set('views','./views');
 app.set('view engine', 'pug');
 app.engine('pug', require('pug').__express);
+app.locals.basedir = __dirname
 
 app.listen(8080);
 

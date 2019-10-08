@@ -1,5 +1,14 @@
-h2
-    a(href='./') Main Menu
-    |
-    |
-    a(href='./Login') Login
+style
+    include /resources/navbar.css
+
+nav.navbar.navbar-expand-sm.navbar-light
+    div.container.inline
+        h1
+            a(href='./') Graphite
+        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+        div.collapse.navbar-collapse#navbarSupportedContent
+            a.nav-link(href='./') Gamejams
+            a.nav-link(href='./') Games
+            a.nav-link(href='./') About
+            a.nav-link(href='./Login', style='margin:auto; margin-right: 0; ') Login
