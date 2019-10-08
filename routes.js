@@ -5,7 +5,7 @@ module.exports = (function() {
 
     routes.get('/', function(req, res){
         res.set('Content-Type', 'text/html');
-        res.render('Base.pug')
+        res.render('head.pug')
     });
 
     routes.get('/login', function(req, res){
