@@ -1,0 +1,37 @@
+extends main.pug
+block append scripts
+  script
+    include ../resources/js/login.js
+  style
+    include ../resources/css/login.css
+block content
+ div.container
+  div.row.d-flex.justify-content-center
+    div.col-md-6
+      div#login
+        form
+          div.form-group
+            label(for='loginEmail') Email adress:
+            input#loginEmail.form-control(type='text' placeholder='email' name='loginEmail' aria-describedby="emailHelp")
+          div.form-group
+            label(for='loginPassword') Password:
+            input#loginPassword.form-control(type='password' placeholder='password' name='loginPassword')
+          div.form-group
+            input#loginSumbit(type='button' name='Sign in' value='Sign in')
+          div.form-group
+            a#toRegistration You don't have an yet account? Click here to join our community.
+      div#register(style={display:'none'})
+        form(method='post' action='/register/')
+          div.form-group
+            label(for='registerEmail') Enter email adress:
+            input#registerEmail.form-control(type='text' placeholder='email' name='registerEmail')
+          div.form-group
+            label(for='registerPassword') Enter password:
+            input#registerPassword.form-control(type='password' placeholder='password' name='registerPassword')
+          div.form-group
+            label(for='retypedPassword') Repeat password:
+            input#retypedPassword.form-control(type='password' placeholder='Retype password' name='retypedPassword')
+          div.form-group
+            input#registerSubmit(type='button' name='Sign up' value='Sign up')
+          div.form-group
+            a#toLogin You already have an account? Click here to sign in.
