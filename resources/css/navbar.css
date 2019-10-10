@@ -5,6 +5,10 @@
 a{
     color:#c0c0c0;
 }
+a:hover{
+    color:white;
+    text-decoration: none;
+}
 .align-left{
     text-align: right;
 }
