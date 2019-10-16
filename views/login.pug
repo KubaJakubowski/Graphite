@@ -16,8 +16,9 @@ block content
           div.form-group
             label(for='loginPassword') Password:
             input#loginPassword.form-control(type='password' placeholder='password' name='loginPassword')
+            p#loginHint.inputHint.alert.alert-danger.small.p-2.m-2
           div.form-group
-            input#loginSumbit(type='button' name='Sign in' value='Sign in')
+            input#loginSubmit(type='button' name='Sign in' value='Sign in')
           div.form-group
             a#toRegistration You don't have an yet account? Click here to join our community.
       div#register(style={display:'none'})
@@ -25,12 +26,15 @@ block content
           div.form-group
             label(for='registerEmail') Enter email adress:
             input#registerEmail.form-control(type='text' placeholder='email' name='registerEmail')
+            p#registerEmailHint.inputHint.alert.alert-danger.small.p-2.m-2
           div.form-group
             label(for='registerPassword') Enter password:
             input#registerPassword.form-control(type='password' placeholder='password' name='registerPassword')
+            p#registerPasswordHint.inputHint.alert.alert-danger.small.p-2.m-2
           div.form-group
             label(for='retypedPassword') Repeat password:
             input#retypedPassword.form-control(type='password' placeholder='Retype password' name='retypedPassword')
+            p#retypedPasswordHint.inputHint.alert.alert-danger.small.p-2.m-2
           div.form-group
             input#registerSubmit(type='button' name='Sign up' value='Sign up')
           div.form-group
