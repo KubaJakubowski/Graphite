@@ -26,6 +26,7 @@ $('#loginSubmit').click(function(){
     let send = { 'email': email, 'password': password};
     console.log(send);
     //send login request
+    $.post('/login', { 'email' : email, 'password' : password});
   }
 });
 
@@ -45,6 +46,7 @@ $('#registerSubmit').click(function(){
     let send = { 'email': email, 'password': password, 'passwordMatch': passwordMatch};
     console.log(send);
     //send request to node.js
+    $.post('/register', { 'email' : email, 'password' : password, 'passwordMatch' : passwordMatch});
   }
   });
 
