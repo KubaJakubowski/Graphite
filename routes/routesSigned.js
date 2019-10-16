@@ -8,23 +8,18 @@ module.exports = (function() {
         res.render('main.pug')
     });
 
-    routes.get('/login', function(req, res){
+    routes.get('/profile', function(req, res){
         res.set('Content-Type', 'text/html');
-        res.render('login.pug');
+        res.render('profile.pug');
     });
 
     routes.get('*', function(req, res){
-        res.status(404).send('Error 404: Page not found')
+        res.set('Content-Type', 'text/html');
+        res.redirect('/profile');
     });
 
-    routes.post('/login', function(req, res){
-        res.send(`Following credintial, login:  ${req.body.loginEmail}, password: ${req.body.loginPassword}`)
-        console.log(`Following credintial, login: ${req.body.loginEmail}, password: ${req.body.loginPassword}`)
-    })
 
-    routes.post('/register', function(req, res){
-        console.log(`${req.body.email} $`)
-    })
+
 
     return routes;
 })();

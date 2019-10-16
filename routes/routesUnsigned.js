@@ -18,8 +18,8 @@ module.exports = (function() {
     });
 
     routes.post('/login', function(req, res){
-        res.send(`Following credintial, login:  ${req.body.loginEmail}, password: ${req.body.loginPassword}`)
-        console.log(`Following credintial, login: ${req.body.loginEmail}, password: ${req.body.loginPassword}`)
+        res.send(`Following credentials, login:  ${req.body.loginEmail}, password: ${req.body.loginPassword}`)
+        console.log(`Following credentials, login: ${req.body.loginEmail}, password: ${req.body.loginPassword}`)
     })
 
     routes.post('/register', function(req, res){

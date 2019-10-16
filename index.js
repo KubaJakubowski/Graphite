@@ -2,10 +2,6 @@ let express = require('express');
 let bodyParser = require('body-parser');
 let app = express();
 
-/* TODO: remove or modify session managment third parties
- let expressSession = require('express-session');
-*/
-
 app.locals.title = 'Graphite';
 app.locals.version = '1.0.0';
 
@@ -25,8 +21,6 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-
-
 app.set('trust proxy','127.0.0.1').enable('trust proxy');
 app.disable('strict routing');
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -41,5 +35,14 @@ app.locals.basedir = __dirname
 
 app.listen(8080);
 
-app.use('/', require('./routes'));
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        app.use('/', require('./routes/routesUnsigned'));
+    } else {
+        app.use('/', require('./routes/routesSigned'));
+    }
+});
+
+
+
 
