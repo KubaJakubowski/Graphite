@@ -6,7 +6,9 @@
   "description": "Game jam jammy management project",
   "dependencies": {
     "constantinople": "^4.0.1",
-    "express": "latest",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "firebase": "^7.2.0",
     "jade": "^1.11.0",
     "pug": "^2.0.4"
   }
