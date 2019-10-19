@@ -17,14 +17,17 @@ module.exports = (function() {
         res.status(404).send('Error 404: Page not found')
     });
 
+    let auth = require('../server/auth.js');
+
     routes.post('/login', function(req, res){
-        res.send(`Following credentials, login:  ${req.body.loginEmail}, password: ${req.body.loginPassword}`)
-        console.log(`Following credentials, login: ${req.body.loginEmail}, password: ${req.body.loginPassword}`)
-    })
+        console.log(`Following credentials, login: ${req.body.email}, password: ${req.body.password}`);
+        auth.login(req.body);
+    });
 
     routes.post('/register', function(req, res){
         console.log(`${req.body.email} $`)
-    })
+        auth.register(req.body);
+    });
 
     return routes;
 })();

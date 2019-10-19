@@ -37,9 +37,9 @@ app.listen(8080);
 
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-        app.use('/', require('./routes/routesUnsigned'));
-    } else {
         app.use('/', require('./routes/routesSigned'));
+    } else {
+        app.use('/', require('./routes/routesUnsigned'));
     }
 });
 
