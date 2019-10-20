@@ -35,14 +35,12 @@ app.locals.basedir = __dirname
 
 app.listen(8080);
 
+app.use('/', require('./routes/routes'));
+
 firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-        app.use('/', require('./routes/routesSigned'));
+    if (user == null) {
+        //app.redirect('/login');
     } else {
-        app.use('/', require('./routes/routesUnsigned'));
+        //app.redirect('/profile');
     }
 });
-
-
-
-

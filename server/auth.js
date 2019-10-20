@@ -1,20 +1,20 @@
 //Authentication module
 
 let auth = {
-  login: function(data){
+  login: function(data, req, res){
     let firebase = require('firebase');
-    require('firebase/auth')
+    require('firebase/auth');
 
     firebase.auth().signInWithEmailAndPassword(data.email, data.password).then(function(){
       console.log('successful');
-      app.redirect('/profile');
+      res.send('<script> location.href = "/fwaf/" </script>');
     }).catch(function(error){
       console.log('error catch, code: ' + error.code + ' desc: ' + error.message);
     });
   },
-  register: function(data){
+  register: function(data, req, res){
     let firebase = require('firebase');
-    require('firebase/auth')
+    require('firebase/auth');
 
     try{
     if (!(data.email).match('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+\$')){
@@ -27,7 +27,6 @@ let auth = {
       console.log('successfully checked');
       firebase.auth().createUserWithEmailAndPassword(data.email, data.password).then(function(){
         console.log('successfully registered');
-        app.redirect('/profile');
       }).catch(function(error){
         console.log('error catch, code: ' + error.code + 'desc: ' + error.message);
       });
@@ -41,9 +40,11 @@ let auth = {
 
     firebase.auth().signInWithEmailAndPassword(data.email, data.password).catch(function(error){
       console.log("error catch");
-    })
+    });
       console.log('successful');
+
   }
-}
+
+};
 
 module.exports = auth;
