@@ -25,7 +25,8 @@ $('#loginSubmit').click(function(){
   }else{
     let request = $.post('/login', { 'email' : email, 'password' : password});
     request.always((data) => { if(data.success) window.location.replace("/profile");
-      else console.log(data.errorDesc); });
+      else
+      showHint('#loginHint',data.errorDesc); });
   }
 });
 
@@ -35,7 +36,7 @@ $('#registerSubmit').click(function(){
   let password = $('#registerPassword').val().toString();
   let passwordMatch = $('#registerPassword').val() == $('#retypedPassword').val();
 
-  if (!(email).match('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+\$')){
+  if (!(email).match('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9.]*[a-zA-Z0-9-]{2,}\$')){
     showHint('#registerEmailHint', 'Provide valid emil address');
   }else if(!(password).match("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}\$")){
     showHint('#registerPasswordHint', 'Your password must be at least 8 characters long and need to contain one lowercase letter, one uppercase letter and digit');
@@ -44,7 +45,9 @@ $('#registerSubmit').click(function(){
   }else {
     //send request to node.js
     let request = $.post('/register', { 'email' : email, 'password' : password, 'passwordMatch' : passwordMatch});
-    request.always((data) => { if(data.success) window.location.replace("/welcome"); else console.log(data.errorDesc); });
+    request.always((data) => { if(data.success) window.location.replace("/welcome");
+    else
+    showHint('#retypedPasswordHint',data.errorDesc); });
   }
   });
 

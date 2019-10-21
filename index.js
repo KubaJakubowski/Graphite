@@ -34,13 +34,16 @@ app.engine('pug', require('pug').__express);
 app.locals.basedir = __dirname
 
 app.listen(8080);
+console.log("Server running on port 8080");
 
 app.use('/', require('./routes/routes'));
 
+global.signed = false;
+
 firebase.auth().onAuthStateChanged(function(user) {
     if (user == null) {
-        //app.redirect('/login');
+        global.signed = false;
     } else {
-        //app.redirect('/profile');
+        global.signed = true;
     }
 });

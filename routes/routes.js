@@ -20,19 +20,20 @@ module.exports = (function() {
 
     routes.post('/login', function(req, res){
         auth.login(req.body, req, res);
-        
+
     });
 
     routes.post('/register', function(req, res){
         auth.register(req.body, req, res);
     });
 
-    routes.post('/logout', onlyAuthenticated, function(req, res){
+    routes.post('/signout', onlyAuthenticated, function(req, res){
         let firebase = require('firebase');
         firebase.auth().signOut().then( () => {
             //successfully signed Out
+            res.send({'unsigned':true});
         }).catch((error) => {
-            //An error happened
+            res.send({'unsigned':false});
         })
     });
 

@@ -1,5 +1,6 @@
 style
-    include /resources/css/navbar.css
+    include ../resources/css/navbar.css
+
 
 nav.navbar.navbar-expand-sm.navbar-light
     div.container.inline
@@ -10,5 +11,13 @@ nav.navbar.navbar-expand-sm.navbar-light
         div.collapse.navbar-collapse#navbarSupportedContent
             a.nav-link(href='./') Gamejams
             a.nav-link(href='./profile') Profile
-            a.nav-link(href='./') About
-            a.nav-link(href='./Login', style='margin:auto; margin-right: 0; ') Login
+            a.nav-link(href='./')
+            if global.signed == true
+              //a.nav-link#loginRedirectLink(href='./login', style='margin:auto; margin-right: 0; display:hide;') Login
+              a.nav-link#signOutLink(style='margin:auto; margin-right: 0;') Sign Out
+            else
+              //a.nav-link#signOutLink(style='margin:auto; margin-right: 0; display:hide;') Sign Out
+              a.nav-link#loginRedirectLink(href='./login', style='margin:auto; margin-right: 0; ') Login
+
+            script
+                include ../resources/js/signOut.js
