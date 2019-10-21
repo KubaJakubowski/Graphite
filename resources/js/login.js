@@ -24,9 +24,8 @@ $('#loginSubmit').click(function(){
     showHint('#loginHint','Provide your account credentials')
   }else{
     let send = { 'email': email, 'password': password};
-    console.log(send);
-    //send login request
-    $.post('/login', { 'email' : email, 'password' : password});
+    let request = $.post('/login', { 'email' : email, 'password' : password})
+    request.always((data) => { if(data) window.location.replace("/profile"); else console.log("login failed"); ;});
   }
 });
 

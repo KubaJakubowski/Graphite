@@ -6,10 +6,11 @@ let auth = {
     require('firebase/auth');
 
     firebase.auth().signInWithEmailAndPassword(data.email, data.password).then(function(){
-      console.log('successful');
-      res.send('<script> location.href = "/fwaf/" </script>');
+      res.send(true);
+
     }).catch(function(error){
       console.log('error catch, code: ' + error.code + ' desc: ' + error.message);
+      res.send(false);
     });
   },
   register: function(data, req, res){

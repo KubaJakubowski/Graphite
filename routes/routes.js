@@ -20,7 +20,8 @@ module.exports = (function() {
 
     routes.post('/login', function(req, res){
         console.log(`Following credentials, login: ${req.body.email}, password: ${req.body.password}`);
-        auth.login(req.body);
+        auth.login(req.body, req, res)//.then( console.log("essa"));
+        
     });
 
     routes.post('/register', function(req, res){
