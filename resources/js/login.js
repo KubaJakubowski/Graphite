@@ -23,9 +23,9 @@ $('#loginSubmit').click(function(){
   if (email == "" || password == "") {
     showHint('#loginHint','Provide your account credentials')
   }else{
-    let send = { 'email': email, 'password': password};
-    let request = $.post('/login', { 'email' : email, 'password' : password})
-    request.always((data) => { if(data) window.location.replace("/profile"); else console.log("login failed"); ;});
+    let request = $.post('/login', { 'email' : email, 'password' : password});
+    request.always((data) => { if(data.success) window.location.replace("/profile");
+      else console.log(data.errorDesc); });
   }
 });
 
@@ -42,10 +42,9 @@ $('#registerSubmit').click(function(){
   }else if(! passwordMatch){
     showHint('#retypedPasswordHint', 'Your passwords does not match')
   }else {
-    let send = { 'email': email, 'password': password, 'passwordMatch': passwordMatch};
-    console.log(send);
     //send request to node.js
-    $.post('/register', { 'email' : email, 'password' : password, 'passwordMatch' : passwordMatch});
+    let request = $.post('/register', { 'email' : email, 'password' : password, 'passwordMatch' : passwordMatch});
+    request.always((data) => { if(data.success) window.location.replace("/welcome"); else console.log(data.errorDesc); });
   }
   });
 

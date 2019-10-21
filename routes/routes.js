@@ -11,7 +11,7 @@ module.exports = (function() {
     routes.get('/login',  onlyUnsigned, function(req, res){
         res.set('Content-Type', 'text/html');
         res.render('login.pug');
-    })
+    });
 
     routes.get('/profile', onlyAuthenticated, function(req, res){
         res.set('Content-Type', 'text/html');
@@ -19,14 +19,21 @@ module.exports = (function() {
     });
 
     routes.post('/login', function(req, res){
-        console.log(`Following credentials, login: ${req.body.email}, password: ${req.body.password}`);
-        auth.login(req.body, req, res)//.then( console.log("essa"));
+        auth.login(req.body, req, res);
         
     });
 
     routes.post('/register', function(req, res){
-        console.log(`${req.body.email} $`);
-        auth.register(req.body);
+        auth.register(req.body, req, res);
+    });
+
+    routes.post('/logout', onlyAuthenticated, function(req, res){
+        let firebase = require('firebase');
+        firebase.auth().signOut().then( () => {
+            //successfully signed Out
+        }).catch((error) => {
+            //An error happened
+        })
     });
 
     routes.get('*', function(req, res){
