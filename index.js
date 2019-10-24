@@ -33,10 +33,20 @@ app.engine('pug', require('pug').__express);
 
 app.locals.basedir = __dirname
 
+const admin = require('firebase-admin');
+
+let serviceAccount = require('./conf/graphite-node-89cf586f0fba.json');
+
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount)
+});
+
 app.listen(8080);
 console.log("Server running on port 8080");
 
 app.use('/', require('./routes/routes'));
+app.use( '/data/', require('./routes/data'));
+
 
 global.signed = false;
 

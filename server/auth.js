@@ -16,6 +16,7 @@ let auth = {
     let firebase = require('firebase');
     require('firebase/auth');
     let errorDesc = '';
+    let db = require('../server/db');
 
     if (!(data.email).match('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9.]*[a-zA-Z0-9-]{2,}\$')) {
       errorDesc = 'Invalid email';
@@ -28,6 +29,7 @@ let auth = {
       res.send({'success': false, 'errorCode': 'formatting', 'errorDesc': errorDesc});
     } else {
       firebase.auth().createUserWithEmailAndPassword(data.email, data.password).then(function () {
+        db.initUser();
         res.send({'success':true, 'errorCode': '', 'errorDesc':''});
       }).catch(function (error) {
         errorDesc = 'Something went wrong, try again later or contact maintainer';
@@ -42,6 +44,20 @@ let auth = {
     else {
       return false;
     }
+  },
+  onlyAuthenticated(req, res, next) {
+    let firebase = require('firebase');
+    if( firebase.auth().currentUser){
+      return next();
+    }
+    res.redirect('/login');
+  },
+  onlyUnsigned(req, res, next) {
+    let firebase = require('firebase');
+    if( firebase.auth().currentUser == null){
+      return next();
+    }
+    res.redirect('/profile');
   }
 };
 
