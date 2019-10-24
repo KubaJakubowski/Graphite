@@ -18,6 +18,11 @@ module.exports = (function() {
         res.render('profile.pug');
     });
 
+    routes.get('/guide', (req, res) => {
+        res.set('Content-Type', 'text/html')
+        res.render('guide.pug');
+    });
+
     routes.post('/login', function(req, res){
         auth.login(req.body, req, res);
 

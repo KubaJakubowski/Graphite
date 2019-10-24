@@ -45,7 +45,7 @@ $('#registerSubmit').click(function(){
   }else {
     //send request to node.js
     let request = $.post('/register', { 'email' : email, 'password' : password, 'passwordMatch' : passwordMatch});
-    request.always((data) => { if(data.success) window.location.replace("/welcome");
+    request.always((data) => { if(data.success) window.location.replace("/guide");
     else
     showHint('#retypedPasswordHint',data.errorDesc); });
   }

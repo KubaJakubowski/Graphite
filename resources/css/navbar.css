@@ -1,9 +1,9 @@
 .navbar{
-    background-color: #E0642A;
-    color:#F5D2C1;
+    background-color: var(--primary-color);;
+    color: var(--fourth-color);;
 }
 a{
-    color:#F5D2C1;
+    color: var(--fifth-color);
 }
 a:hover{
     color:white;
