@@ -7,9 +7,13 @@ module.exports = (() =>{
 
     routes.post('/getDocuments', (req, res) => {
         res.set('Content-Type', 'text/json');
-        res.send( db.getDocuments());
+        db.getDocuments( req, res);
     });
 
+    routes.post('/createDocument', (req, res) => {
+        res.set('Content-Type', 'text/json');
+        res.send( db.createDocument( req.body.name));
+    })
 
 
     return routes;
