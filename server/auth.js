@@ -29,7 +29,7 @@ let auth = {
       res.send({'success': false, 'errorCode': 'formatting', 'errorDesc': errorDesc});
     } else {
       firebase.auth().createUserWithEmailAndPassword(data.email, data.password).then(function () {
-        db.initUser();
+        db.createDocument('Sample', 'This is example document, feel free to edit or delete it.');
         res.send({'success':true, 'errorCode': '', 'errorDesc':''});
       }).catch(function (error) {
         errorDesc = 'Something went wrong, try again later or contact maintainer';

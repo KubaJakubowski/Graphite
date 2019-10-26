@@ -1,18 +1,6 @@
 //Database module
 
     let db = {
-        initUser: () => {
-            let firebase = require('firebase');
-            let uid = firebase.auth().currentUser.uid;
-            const admin = require('firebase-admin');
-            let firestore = admin.firestore();
-            const uuidv1 = require('uuid/v1');
-
-            firestore.collection('users').doc(uid)
-                .collection('documents').doc(uuidv1())
-                    .set({'Name':'Sample', 'Author':'Me', 'Creation Date': Date.toString()});
-
-        },
         getDocuments: (req, res) => {
             let firebase = require('firebase');
             let uid = firebase.auth().currentUser.uid;
@@ -32,16 +20,20 @@
                         res.send(result)
             );
         },
-        createDocument:( name) => {
+        createDocument:(name, shortDesc) => {
             let firebase = require('firebase');
             let uid = firebase.auth().currentUser.uid;
             const admin = require('firebase-admin');
             let firestore = admin.firestore();
             const uuidv1 = require('uuid/v1');
+            let date = require('../server/date.js');
 
             firestore.collection('users').doc(uid)
                 .collection('documents').doc(uuidv1())
-                .set({'Name': name, 'Creation Date': Date.now()});
+                .set({'name': name,
+                    'creationHour': date.getFullTime(':'),
+                    'creationDate': date.getFullDate('.'),
+                      'shortDesc': shortDesc});
 
 
         }
