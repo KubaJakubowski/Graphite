@@ -28,6 +28,8 @@
             const uuidv1 = require('uuid/v1');
             let date = require('../server/date.js');
 
+            console.log(uuidv1());
+
             firestore.collection('users').doc(uid)
                 .collection('documents').doc(uuidv1())
                 .set({'name': name,

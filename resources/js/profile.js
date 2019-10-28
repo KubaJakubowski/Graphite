@@ -16,7 +16,11 @@ $(document).ready(() => {
             for(let key in data){
                 addCard(target, data[key])
             }
-        })
+            $(target).append('' +
+                '<div class="card m-3 text-center"style="display: inline-flex; width: 18rem; border-radius: 100px;"> ' +
+                '<i class="card-body far fa-plus-square fa-1x"> Add new document </i>' +
+                '</div>');
+        });
     };
 
     let addCard = (target , dataRow) => {
@@ -30,11 +34,11 @@ $(document).ready(() => {
                 "<h6 class='card-subtitle mb-2 text-muted text-right'>" +dataRow.creationHour+ "</h6> " +
                 "</div>" +
                 "<p class='card-text'>" +dataRow.shortDesc+ "</p>" +
-                "<a href='#' class='card-link'>Card link</a>" +
-                "<a href='#' class='card-link'>Another link</a>" +
+                "<a href='#' class='card-link secondary-color-text'>Card link</a>" +
+                "<a href='#' class='card-link secondary-color-text'>Another link</a>" +
                 "</div>" +
             "</div>" );
-        }
+        };
 
     updateDocuments("#cardsContainer");
 });

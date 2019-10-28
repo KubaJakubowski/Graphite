@@ -28,6 +28,23 @@ p{
 }
 
 .tile{
-    height: 50d;
+    height: 50;
 
 }
+
+.button-round{
+    border-radius: 100%;
+}
+
+.button-add{
+
+}
+
+.secondary-color-text{
+    color: var(--secondary-color);
+}
+
+.secondary-color-background{
+    background-color: var(--secondary-color);
+}
+
