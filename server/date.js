@@ -13,6 +13,9 @@
             let hh = String(date.getHours()).padStart(2, '0');
             let mn = String(date.getMinutes()).padStart(2, '0');
             return hh + char + mn;
+        },
+        getTimestamp(){
+          return new Date().getTime();
         }
 
     };

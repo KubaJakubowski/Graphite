@@ -2,12 +2,21 @@ extends head.pug
 block append scripts
     script
         include ../resources/js/profile.js
+    style
+        include ../resources/css/profile.css
 block content
     div.container
         div.p-3.main
             div.row
-                h2 Create new documents
+                h2
             div.row
                 div.col-sm-2
                 div.col-sm-8
                     span#cardsContainer
+                div.col-sm-2
+            div.row
+                div.col-sm-2
+                div.col-sm-8(style='display: inline-flex; justify-content: center;')
+                    include ../resources/widgets/modal
+                div.col-sm-2
+

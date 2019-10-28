@@ -23,23 +23,6 @@ p{
     box-shadow: silver;
 }
 
-.main{
-
-}
-
-.tile{
-    height: 50;
-
-}
-
-.button-round{
-    border-radius: 100%;
-}
-
-.button-add{
-
-}
-
 .secondary-color-text{
     color: var(--secondary-color);
 }

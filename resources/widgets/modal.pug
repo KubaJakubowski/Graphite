@@ -1,0 +1,19 @@
+// This pug file includes:
+
+// 1. Button for activating modal
+div.card.m-3.text-center.create-document-button.animated-background(type='button' data-toggle='modal' data-target='#createDocumentModal')
+    i.card-body.far.fa-plus-square.fa-lg
+
+// 2. Nested modal activated by button
+div.modal.fade#createDocumentModal(tabindex='-1' role='dialog' aria-labelledby='createDocumentModalTitle' aria-hidden='true')
+    div.modal-dialog(role="document")
+        div.modal-content
+            div.modal-header
+                input.modal-title#createDocumentName(placeholder='New Document')
+                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                    span(aria-hidden='true') &times;
+            input.modal-body#createDocumentShortDesc(placeholder='Provide short description')
+            div.modal-footer
+                button#createDocumentButtonClose.btn.btn-secondary(type='button' data-dismiss='modal') Close
+                button#createDocumentButtonSubmit.btn.btn-primary(type='button') Create document
+

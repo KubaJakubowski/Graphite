@@ -12,7 +12,6 @@
             firestore.collection('users').doc(uid)
                 .collection('documents').get()
                     .then( docs => {docs.forEach( documentSnapshot => {
-                          console.log(documentSnapshot.data());
                           result.push(documentSnapshot.data());
                         });
                         res.send(result);
@@ -33,8 +32,8 @@
             firestore.collection('users').doc(uid)
                 .collection('documents').doc(uuidv1())
                 .set({'name': name,
-                    'creationHour': date.getFullTime(':'),
-                    'creationDate': date.getFullDate('.'),
+                    'created': date.getTimestamp() ,
+                    'updated': date.getTimestamp() ,
                       'shortDesc': shortDesc});
 
 

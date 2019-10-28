@@ -1,0 +1,28 @@
+.create-document-button{
+    width: 6rem;
+    border-radius: 100px;
+}
+
+.create-document-button:hover{
+    width: 10rem;
+}
+
+.animated-background:hover{
+    background-color:  var(--fourth-color);
+    animation: changeBackgroundColor, changeFontColor;
+    animation-duration: 1s;
+}
+
+.text-grey{
+    color: blanchedalmond;
+}
+
+@keyframes changeBackgroundColor {
+    from{
+        background-color: whitesmoke;
+    }
+    to{
+        background-color:  var(--fourth-color);
+    }
+}
+
