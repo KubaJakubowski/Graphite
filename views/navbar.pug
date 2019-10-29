@@ -14,10 +14,11 @@ nav.navbar.navbar-expand-sm.navbar-light
             a.nav-link(href='./')
             if global.signed == true
               //a.nav-link#loginRedirectLink(href='./login', style='margin:auto; margin-right: 0; display:hide;') Login
-              a.nav-link#signOutLink(style='margin:auto; margin-right: 0;') Sign Out
+              a.nav-link.clickable#signOutLink(href='' style='margin:auto; margin-right: 0;') Sign Out
             else
               //a.nav-link#signOutLink(style='margin:auto; margin-right: 0; display:hide;') Sign Out
-              a.nav-link#loginRedirectLink(href='./login', style='margin:auto; margin-right: 0; ') Login
+              a.nav-link.clickable#loginRedirectLink(href='./login', style='margin:auto; margin-right: 0; ') Login
+
 
             script
                 include ../resources/js/signOut.js

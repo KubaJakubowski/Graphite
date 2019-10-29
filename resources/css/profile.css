@@ -7,15 +7,17 @@
     width: 10rem;
 }
 
-.animated-background:hover{
-    background-color:  var(--fourth-color);
-    animation: changeBackgroundColor, changeFontColor;
-    animation-duration: 1s;
-}
 
 .text-grey{
     color: blanchedalmond;
 }
+
+.animated-background:hover{
+    background-color:  var(--fourth-color);
+    animation: changeBackgroundColor;
+    animation-duration: 1s;
+}
+
 
 @keyframes changeBackgroundColor {
     from{

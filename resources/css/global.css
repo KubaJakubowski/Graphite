@@ -31,3 +31,23 @@ p{
     background-color: var(--secondary-color);
 }
 
+.clickable:hover{
+    cursor: pointer;
+    color : whitesmoke;
+}
+
+.animated-background:hover{
+    background-color: var(--fifth-color);
+    animation: changeBackgroundColor;
+    animation-duration: 1s;
+}
+
+
+@keyframes changeBackgroundColor {
+    from{
+        background-color: var(--fifth-color);
+    }
+    to{
+        background-color:  var(--fourth-color);
+    }
+}s

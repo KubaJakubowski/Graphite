@@ -1,18 +1,20 @@
 $(document).ready(function(){
 
+let login = true;
 
 $('#toRegistration').click(function(){
   $('.inputHint').hide();
   $('#login').css('display','none');
   $('#register').css('display','block');
-  });
-
+  login = false;
+});
 
 $('#toLogin').click(function(){
   $('.inputHint').hide();
   $('#register').css('display','none');
   $('#login').css('display','block');
-  });
+  login = true;
+});
 
 
 $('#loginSubmit').click(function(){
@@ -54,6 +56,16 @@ $('#registerSubmit').click(function(){
   function showHint(targetMarkup, description){
     $(targetMarkup).text(description).show()
   }
+
+  $('form').keydown((event) => {
+    if(event.code == 'Enter'){
+      if(login){
+        $('#loginSubmit').click();
+      }else {
+        $('#registerSubmit').click();
+      }
+    }
+  })
 
 
 });

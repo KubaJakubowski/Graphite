@@ -8,7 +8,7 @@ block content
  div.container
   div.row.d-flex.justify-content-center
     div.col-md-6.m-3
-      div#login.p-3
+      div#login.p-3.m-1
         form
           div.form-group
             label(for='loginEmail') Email adress:
@@ -19,8 +19,8 @@ block content
             p#loginHint.inputHint.alert.alert-danger.small.p-2.m-2
           div.form-group
             input#loginSubmit(type='button' name='Sign in' value='Sign in')
-          div.form-group
-            a#toRegistration You don't have an yet account? Click here to join our community.
+          div.form-group.text-center
+            a.clickable.animated-background.p-2.m-2#toRegistration You don't have an account yet? Click here to join our community.
       div#register(style={display:'none'})
         form(method='post' action='/register/')
           div.form-group
@@ -37,5 +37,5 @@ block content
             p#retypedPasswordHint.inputHint.alert.alert-danger.small.p-2.m-2
           div.form-group
             input#registerSubmit(type='button' name='Sign up' value='Sign up')
-          div.form-group
-            a#toLogin You already have an account? Click here to sign in.
+          div.form-group.text-center
+            a.clickable.animated-background.p-2.m-3s#toLogin You already have an account? Click here to sign in.
