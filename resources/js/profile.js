@@ -6,18 +6,28 @@ $(document).ready(() => {
         let name = $('#createDocumentName').val() ;
         let shortDesc = $('#createDocumentShortDesc').val();
 
-        $('#createDocumentName').val('');
-        $('#createDocumentShortDesc').val('');
-
         let dataRow = {'name':name, 'shortDesc':shortDesc};
 
         let request = $.post('data/createDocument', dataRow);
         request.always( () =>{
-            //updateDocuments('#cardsContainer');
-            addCard('#cardsContainer', dataRow)
+            //
+            //addCard('#cardsContainer', dataRow)
 
-            $('#createDocumentButtonClose').click()
+            setTimeout(() =>{
+                updateDocuments('#cardsContainer');
+                $('#createDocumentButtonClose').click()
+
+                $('#createDocumentName').val('');
+                $('#createDocumentShortDesc').val('');
+
+            }, 500);
+
         })
+
+
+
+
+
 
     })
 

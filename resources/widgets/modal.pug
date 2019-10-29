@@ -6,11 +6,11 @@ div.card.m-3.text-center.create-document-button.animated-background(type='button
 
 // 2. Nested modal activated by button
 div.modal.fade#createDocumentModal(tabindex='-1' role='dialog' aria-labelledby='createDocumentModalTitle' aria-hidden='true')
-    div.modal-dialog(role="document")
+    div.modal-dialog.modal-dialog-centered(role="document")
         div.modal-content
             div.modal-header
                 input.modal-title#createDocumentName(placeholder='New Document')
-                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                //button.close(type='button' data-dismiss='modal' aria-label='Close')
                     span(aria-hidden='true') &times;
             input.modal-body#createDocumentShortDesc(placeholder='Provide short description')
             div.modal-footer
